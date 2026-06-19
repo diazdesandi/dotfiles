@@ -46,5 +46,22 @@ if [[ -f "$HOME/.config/ghostty/theme" ]]; then
     "$ROOT/Ghostty/theme.txt"
 fi
 
+backup_extensions() {
+  local cmd="$1"
+  local dest="$2"
+
+  if ! command -v "$cmd" >/dev/null 2>&1; then
+    echo "skip  $dest ($cmd not found)"
+    return 0
+  fi
+
+  mkdir -p "$(dirname "$dest")"
+  "$cmd" --list-extensions >"$dest"
+  echo "saved $dest"
+}
+
+backup_extensions code "$ROOT/Visual Studio Code/extensions.txt"
+backup_extensions cursor "$ROOT/Cursor/extensions.txt"
+
 echo
 echo "Done. Review changes with: git -C \"$ROOT\" status"
