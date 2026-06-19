@@ -1,0 +1,63 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "console_title_template": "{{ if .Root }}root @ {{ end }}{{ .Shell }} in {{ .Folder }}",
+    "blocks": [
+        {
+            "alignment": "right",
+            "overflow": "hide",
+            "segments": [
+                {
+                    "type": "executiontime",
+                    "style": "plain",
+                    "foreground": "#00C5C7",
+                    "template": " {{ .FormattedMs }}s <#ffffff>\ue601</>",
+                    "properties": {
+                        "threshold": 0,
+                        "style": "dallas"
+                    }
+                },
+                {
+                    "type": "node",
+                    "style": "plain",
+                    "foreground": "#45bf17",
+                    "template": " \ue718 {{ .Major }}.{{ .Minor }} "
+                }
+            ],
+            "type": "rprompt"
+        },
+        {
+            "alignment": "left",
+            "segments": [
+                {
+                    "foreground": "#fffffd",
+                    "style": "plain",
+                    "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+                    "type": "os"
+                },
+                {
+                    "foreground": "#77E4F7",
+                    "properties": {
+                        "style": "folder"
+                    },
+                    "style": "plain",
+                    "template": "{{ .Path }} ",
+                    "type": "path"
+                },
+                {
+                    "foreground": "#FFE700",
+                    "style": "plain",
+                    "template": "{{ .HEAD }} ",
+                    "type": "git"
+                },
+                {
+                    "foreground": "#ffffff",
+                    "style": "plain",
+                    "template": "\u276f ",
+                    "type": "text"
+                }
+            ],
+            "type": "prompt"
+        }
+    ],
+    "version": 3
+}

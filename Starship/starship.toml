@@ -1,23 +1,76 @@
-format = "▲$directory$git_branch$git_status$character"
+"$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = true
+format = """
+[](green)\
+$os\
+$username\
+[](bg:yellow fg:green)\
+$directory\
+[](bg:peach fg:yellow)\
+$git_branch\
+$git_status\
+[](bg:red fg:peach)\
+$rust\
+$golang\
+$bun\
+$nodejs\
+$swift\
+${custom.swift_root}\
+$python\
+[](bg:pink fg:red)\
+$docker_context\
+$gcloud\
+$azure\
+$helm\
+$kubernetes\
+$nix_shell\
+$pulumi\
+$conda\
+[](bg:sapphire fg:pink)\
+$time\
+[ ](fg:sapphire)\
+$cmd_duration\
+$line_break\
+$character"""
+
+palette = 'mac-rainbow'
+
+[os]
+disabled = false
+style = "bg:green fg:crust"
+
+[os.symbols]
+Macos = "󰀵"
+
+[username]
+show_always = true
+style_user = "bg:green fg:crust"
+style_root = "bg:green fg:crust"
+format = '[ $user]($style)'
 
 [directory]
-format = " $path "
-style = "bold"
+style = "bg:yellow fg:crust"
+format = "[ $path ]($style)"
 truncation_length = 1
-truncate_to_repo = false
 home_symbol = "~"
+truncate_to_repo = false
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
 
 [git_branch]
-format = "| $branch "
-style = "bold"
+symbol = ""
 only_attached = true
-symbol = ""
+format = '[[ $symbol $branch ](fg:crust bg:peach)]($style)'
+
 
 [git_status]
-style = "bold"
-format = "$staged$modified$untracked$ahead_behind "
+style = "bg:peach"
+format = '[[($staged$modified$untracked$ahead_behind )](fg:crust bg:peach)]($style)'
 staged = "+"
 modified = "±"
 untracked = "…"
@@ -25,6 +78,139 @@ ahead = "↑$count"
 behind = "↓$count"
 diverged = "⇅↑$ahead_count↓$behind_count"
 
+[nodejs]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:crust bg:red)]($style)'
+
+[bun]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:crust bg:red)]($style)'
+
+[swift]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:crust bg:red)]($style)'
+detect_extensions = ["swift", "xcodeproj", "xcworkspace"]
+detect_files = ["Package.swift", ".swift-version", "*.xcodeproj", "*.xcworkspace"]
+detect_folders = ["Sources", "Tests", "*.xcodeproj", "*.xcworkspace"]
+
+[custom.swift_root]
+description = "Show Swift icon at Xcode project roots"
+when = 'ls -d *.xcodeproj >/dev/null 2>&1 || ls -d *.xcworkspace >/dev/null 2>&1'
+command = 'echo ""'
+style = "bg:red fg:crust"
+format = '[[ $output ]($style)]($style)'
+
+
+[rust]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:crust bg:red)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:crust bg:red)]($style)'
+
+[python]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:red)]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:pink"
+format = '[[ $symbol( $context) ](fg:crust bg:pink)]($style)'
+
+[gcloud]
+symbol = "󱇶 "
+style = "bg:pink"
+format = '[[ $symbol( $region) ](fg:crust bg:pink)]($style)'
+disabled = true
+
+[azure]
+symbol = " "
+style = "bg:pink"
+format = '[[ $symbol( $subscription) ](fg:crust bg:pink)]($style)'
+
+[helm]
+symbol = " "
+style = "bg:pink"
+format = '[[ $symbol( $version) ](fg:crust bg:pink)]($style)'
+
+[kubernetes]
+symbol = "󱃾 "
+style = "bg:pink"
+format = '[[ $symbol( $context( \($namespace\)) ) ](fg:crust bg:pink)]($style)'
+
+[nix_shell]
+symbol = " "
+style = "bg:pink"
+format = '[[ $symbol( $name) ](fg:crust bg:pink)]($style)'
+
+[pulumi]
+symbol = " "
+style = "bg:pink"
+format = '[[ $symbol( $stack) ](fg:crust bg:pink)]($style)'
+
+[conda]
+symbol = "  "
+style = "fg:crust bg:pink"
+format = '[$symbol$environment ]($style)'
+ignore_base = false
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:blue"
+format = '[[  $time ](fg:crust bg:blue)]($style)'
+
+[line_break]
+disabled = true
+
 [character]
-success_symbol = "›"
-error_symbol = "✖"
+disabled = true
+success_symbol = '[❯](fg:green)'
+error_symbol = '[❯](bold fg:red)'
+vimcmd_symbol = '[❮](bold fg:green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:lavender)'
+vimcmd_replace_symbol = '[❮](bold fg:lavender)'
+vimcmd_visual_symbol = '[❮](bold fg:yellow)'
+
+[cmd_duration]
+show_milliseconds = true
+format = " in $duration "
+style = "fg:crust bg:lavender"
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
+
+[palettes.mac-rainbow]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#973999"
+mauve = "#973999"
+red = "#E23838"
+maroon = "#9a2f2f"
+peach = "#F78200"
+yellow = "#FFB900"
+green = "#5EBD3E"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#009CDF"
+blue = "#009CDF"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"

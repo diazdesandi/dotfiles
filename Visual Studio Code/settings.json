@@ -1,266 +1,337 @@
 {
-    "telemetry.telemetryLevel": "off",
-    "editor.fontSize": 16,
-    "editor.fontFamily": "'Cartograph CF'",
-    "editor.fontLigatures": "'calt', 'ss02','ss03', 'zero', 'onum','ss10','ss12','ss14','ss15','ss16'",
-    "editor.fontVariations": true,
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": [
-                    //following will be in italic (=FlottFlott)
-                    "comment",
-                    "entity.name.type.class", //class names
-                    "keyword", //import, export, return…
-                    "constant", //String, Number, Boolean…, this, super
-                    "storage.modifier", //static keyword
-                    "storage.type.class.js" //class keyword
-                ],
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": [
-                    //following will be excluded from italics (VSCode has some defaults for italics)
-                    "invalid",
-                    "keyword.operator",
-                    "constant.numeric.css",
-                    "keyword.other.unit.px.css",
-                    "constant.numeric.decimal.js",
-                    "constant.numeric.json"
-                ],
-                "settings": {
-                    "fontStyle": ""
-                }
-            }
-        ]
-    },
-    "editor.lineHeight": 20,
-    "editor.minimap.enabled": false,
-    "editor.smoothScrolling": true,
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.cursorBlinking": "smooth",
-    "window.zoomLevel": 1.5,
-    "workbench.editor.enablePreview": false,
-    "workbench.list.smoothScrolling": true,
-    "workbench.editor.showTabs": "multiple",
-    "workbench.productIconTheme": "icons-octicons",
-    "workbench.sideBar.location": "right",
-    "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.editor.tabSizing": "fit",
-    "workbench.tips.enabled": false,
-    "explorer.compactFolders": false,
-    "javascript.suggest.autoImports": false,
-    "typescript.suggest.autoImports": false,
-    "terminal.integrated.smoothScrolling": true,
-    "files.autoSave": "onFocusChange",
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "terminal.integrated.fontFamily": "MonoLisa",
-    "terminal.integrated.fontSize": 16,
-    "custom-ui-style.font.sansSerif": "'Recoleta'",
-    "extensions.ignoreRecommendations": true,
-    "git.autofetch": true,
-    "security.workspace.trust.untrustedFiles": "open",
-    "window.customTitleBarVisibility": "auto",
-    "window.titleBarStyle": "custom",
-    "custom-ui-style.background.opacity": 0.1,
-    "animations.Install-Method": "Custom UI Style",
-    "custom-ui-style.external.imports": [
-        "file:///Users/rene/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
-    ],
-    "git.confirmSync": false,
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:claude-sonnet-4",
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": true,
-        "scminput": false
-    },
-    "zenMode.fullScreen": false,
-    "zenMode.hideLineNumbers": false,
-    "zenMode.centerLayout": false,
-    "zenMode.hideStatusBar": true,
-    "zenMode.showTabs": "none",
-    "workbench.editor.empty.hint": "hidden",
-    "GitLive.Special branches": "main|master|trunk|dev|develop|qa|test|release[-/].*",
-    "docker.extension.enableComposeLanguageServer": false,
-    "editor.renderLineHighlight": "gutter",
-    "animations.Enabled": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "editor.formatOnSaveMode": "file",
-    "editor.formatOnSave": true, // Add a subtle pulse
-    "files.associations": {
-        "*.vue": "vue"
-    },
-    "zenMode.hideActivityBar": false,
-    "workbench.statusBar.visible": false,
-    "diffEditor.codeLens": true,
-    "chat.tools.terminal.autoApprove": {
-        "bunx": true
-    },
-    "chat.mcp.gallery.enabled": true,
-    "workbench.colorTheme": "Thanatos",
-    "makefile.configureOnOpen": false,
-    "files.watcherExclude": {
-        "**/.bloop": true,
-        "**/.metals": true
-    },
-    "workbench.iconTheme": "flow-dim",
-    "git.openRepositoryInParentFolders": "always",
-    "sonarlint.automaticAnalysis": true,
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "go.toolsManagement.autoUpdate": true,
-    "custom-ui-style.stylesheet": {
-        // Editors & editor groups: rounded "card" for the code area
-        ".monaco-workbench .editor-group-container": {
-            "border-radius": "12px",
-            "overflow": "hidden",
-            "background-color": "var(--cus-editor-bg)"
-        },
-        ".monaco-workbench .editor-group-container .monaco-scrollable-element": {
-            "border-radius": "12px",
-            "background-color": "var(--cus-editor-bg)"
-        },
-        // Activity bar icons
-        ".monaco-workbench .activitybar .monaco-action-bar .action-item": {
-            "border-radius": "8px"
-        },
-        ".monaco-workbench .activitybar .monaco-action-bar .action-item .action-label": {
-            "border-radius": "8px"
-        },
-        // Side bar
-        ".monaco-workbench .part.sidebar": {
-            "border-radius": "8px",
-            "overflow": "hidden"
-        },
-        // Panels (terminal, problems, output, etc.)
-        ".monaco-workbench .part.panel": {
-            "border-radius": "8px",
-            "overflow": "hidden"
-        },
-        // Status bar
-        ".monaco-workbench .part.statusbar": {
-            "border-radius": "8px 8px 0 0"
-        },
-        // Buttons
-        ".monaco-text-button": {
-            "border-radius": "6px !important"
-        },
-        ".monaco-button-dropdown > .monaco-button.monaco-text-button": {
-            "border-radius": "6px 0 0 6px !important"
-        },
-        ".monaco-button-dropdown > .monaco-button.monaco-dropdown-button": {
-            "border-radius": "0 6px 6px 0 !important"
-        },
-        // Inputs & find widgets
-        ".monaco-inputbox, .monaco-findInput .monaco-inputbox, .monaco-workbench .quick-input-widget": {
-            "border-radius": "6px"
-        },
-        // Notifications
-        ".monaco-workbench > .notifications-center": {
-            "border-radius": "8px !important",
-            "overflow": "hidden"
-        },
-        ".monaco-workbench .notification-toast-container .monaco-list-row": {
-            "border-radius": "8px"
-        },
-        // Let the background show around editor group title (so islands float) and separate breadcrumbs and tabs
-        ".monaco-workbench .part.editor .editor-group-container .title": {
-            "background-color": "transparent",
-            "padding": "6px 8px",
-            "gap": "4px",
-            "display": "flex",
-            "flex-direction": "column",
-            "align-items": "stretch"
-        },
-        // Style tabs with rounded corners and separation
-        ".monaco-workbench .part.editor .editor-group-container .title .tabs-container > .tab": {
-            "border-radius": "12px",
-            "padding-bottom": "5px"
-        },
-        // Ensure breadcrumbs use theme color and proper alignment
-        ".monaco-workbench .part.editor .editor-group-container .title .breadcrumbs-control": {
-            "border-radius": "10px",
-            "overflow": "hidden"
-        },
-        // Add rounded corners to all elements
-        ".monaco-workbench .part": {
-            "border-radius": "12px",
-            "overflow": "hidden"
-        },
-        ".monaco-workbench .part > *": {
-            "border-radius": "12px"
-        },
-        ".monaco-breadcrumbs": {
-            "background-color": "transparent",
-            "padding": "0",
-            "max-width": "100%",
-            "overflow": "hidden"
-        },
-        ".monaco-breadcrumbs .monaco-breadcrumb-item": {
-            "border-radius": "999px",
-            "padding": "2px 6px",
-            "overflow": "hidden",
-            "text-overflow": "ellipsis",
-            "white-space": "nowrap"
-        },
-        ".tabs-and-actions-container.tabs-border-bottom": {
-            "border-bottom": "none !important",
-            "--tabs-border-bottom-color": "transparent !important"
-        },
-        ".tab.tab-border-bottom": {
-            "border-bottom": "none !important",
-            "--tab-border-bottom-color": "transparent !important"
-        },
-        ".tab-border-bottom-container": {
-            "display": "none !important"
-        },
-        ".tabs-and-actions-container": {
-            "box-shadow": "none !important"
-        },
-        ".monaco-workbench .part.editor > .content .container": {
-            "box-shadow": "none !important"
-        },
-        /* 2. Round the Editor corners */
-        /* This targets the actual scrollable code area */
-        ".monaco-editor, .monaco-editor .overflow-guard": {
-            "border-top-left-radius": "20px !important",
-            "border-top-right-radius": "20px !important"
-        },
-        ".tab-border-top-container": {
-            "display": "none !important"
-        },
-        ".tabs-container > .tab": {
-            "margin-right": "4px !important",
-            "border-right": "none !important",
-            "border-radius": "12px"
-        },
-        ".tabs-container > .tab:last-child": {
-            "margin-right": "0px !important"
-        },
-        ".tabs-container": {
-            "display": "flex !important",
-            "gap": "0px !important"
-        },
-        ".margin-view-overlays": {
-            "border-radius": "20px 0 0 20px !important",
-            "overflow": "hidden !important",
-            "margin-right": "10px !important"
-        },
-        ".line-numbers": {
-            "border-radius": "6px !important"
-        },
-        ".current-line-margin": {
-            "border-radius": "6px !important"
-        }
-    },
-    "editor.stickyScroll.enabled": false,
-    "workbench.activityBar.location": "top",
-    "chat.viewSessions.orientation": "stacked",
-    "window.commandCenter": false
+	"telemetry.telemetryLevel": "off",
+	"editor.fontSize": 16,
+	"editor.fontFamily": "'Monolisa Medium'",
+	"editor.fontLigatures": "'calt', 'ss02','ss03', 'zero', 'onum','ss10','ss12','ss14','ss15','ss16'",
+	"editor.fontVariations": true,
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": [
+					//following will be in italic (=FlottFlott)
+					"comment",
+					"entity.name.type.class", //class names
+					"keyword", //import, export, return…
+					"constant", //String, Number, Boolean…, this, super
+					"storage.modifier", //static keyword
+					"storage.type.class.js" //class keyword
+				],
+				"settings": {
+					"fontStyle": "italic"
+				}
+			},
+			{
+				"scope": [
+					//following will be excluded from italics (VSCode has some defaults for italics)
+					"invalid",
+					"keyword.operator",
+					"constant.numeric.css",
+					"keyword.other.unit.px.css",
+					"constant.numeric.decimal.js",
+					"constant.numeric.json"
+				],
+				"settings": {
+					"fontStyle": ""
+				}
+			}
+		]
+	},
+	"editor.lineHeight": 20,
+	"editor.minimap.enabled": false,
+	"editor.smoothScrolling": true,
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.cursorBlinking": "smooth",
+	"window.zoomLevel": 1.5,
+	"workbench.list.smoothScrolling": true,
+	"workbench.editor.showTabs": "multiple",
+	"workbench.sideBar.location": "right",
+	"workbench.tree.indent": 16,
+	"workbench.tree.renderIndentGuides": "none",
+	"workbench.editor.tabSizing": "fit",
+	"workbench.tips.enabled": false,
+	"explorer.compactFolders": false,
+	"terminal.integrated.smoothScrolling": true,
+	"files.autoSave": "onFocusChange",
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"terminal.integrated.fontFamily": "GeistMono NF",
+	"terminal.integrated.fontSize": 16,
+	"custom-ui-style.font.sansSerif": "'Innovator Grotesk'",
+	"extensions.ignoreRecommendations": true,
+	"git.autofetch": true,
+	"security.workspace.trust.untrustedFiles": "open",
+	"window.customTitleBarVisibility": "auto",
+	"window.titleBarStyle": "custom",
+	"custom-ui-style.background.opacity": 0.1,
+	"animations.Install-Method": "Custom UI Style",
+	"custom-ui-style.external.imports": [
+		"file:///Users/rene/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+	],
+	"git.confirmSync": false,
+	"gitlens.ai.model": "gitkraken",
+	"gitlens.ai.vscode.model": "copilot:gemini-3.1-pro-preview",
+	"github.copilot.enable": {
+		"*": true,
+		"plaintext": false,
+		"markdown": true,
+		"scminput": false
+	},
+	"zenMode.fullScreen": false,
+	"zenMode.hideLineNumbers": false,
+	"zenMode.centerLayout": false,
+	"zenMode.hideStatusBar": true,
+	"zenMode.showTabs": "none",
+	"workbench.editor.empty.hint": "hidden",
+	"GitLive.Special branches": "main|master|trunk|dev|develop|qa|test|release[-/].*",
+	"docker.extension.enableComposeLanguageServer": false,
+	"editor.renderLineHighlight": "gutter",
+	"animations.Enabled": true,
+	"editor.formatOnSaveMode": "file",
+	"editor.formatOnSave": true, // Add a subtle pulse
+	"files.associations": {
+		"*.vue": "vue"
+	},
+	"zenMode.hideActivityBar": false,
+	"workbench.statusBar.visible": false,
+	"diffEditor.codeLens": true,
+	"chat.tools.terminal.autoApprove": {
+		"bunx": true
+	},
+	"chat.mcp.gallery.enabled": true,
+	"makefile.configureOnOpen": false,
+	"files.watcherExclude": {
+		"**/.bloop": true,
+		"**/.metals": true
+	},
+	"git.openRepositoryInParentFolders": "always",
+	"sonarlint.automaticAnalysis": false,
+	"github.copilot.nextEditSuggestions.enabled": true,
+	"go.toolsManagement.autoUpdate": true,
+	"custom-ui-style.stylesheet": {
+		// Editors & editor groups: rounded "card" for the code area
+		".monaco-workbench .editor-group-container": {
+			"border-radius": "12px",
+			"overflow": "hidden",
+			"background-color": "var(--cus-editor-bg)"
+		},
+		".monaco-workbench .editor-group-container .monaco-scrollable-element": {
+			"border-radius": "12px",
+			"background-color": "var(--cus-editor-bg)"
+		},
+		// Activity bar icons
+		".monaco-workbench .activitybar .monaco-action-bar .action-item": {
+			"border-radius": "8px"
+		},
+		".monaco-workbench .activitybar .monaco-action-bar .action-item .action-label": {
+			"border-radius": "8px"
+		},
+		// Side bar
+		".monaco-workbench .part.sidebar": {
+			"border-radius": "8px",
+			"overflow": "hidden"
+		},
+		// Panels (terminal, problems, output, etc.)
+		".monaco-workbench .part.panel": {
+			"border-radius": "8px",
+			"overflow": "hidden"
+		},
+		// Status bar
+		".monaco-workbench .part.statusbar": {
+			"border-radius": "8px 8px 0 0"
+		},
+		// Buttons
+		".monaco-text-button": {
+			"border-radius": "6px !important"
+		},
+		".monaco-button-dropdown > .monaco-button.monaco-text-button": {
+			"border-radius": "6px 0 0 6px !important"
+		},
+		".monaco-button-dropdown > .monaco-button.monaco-dropdown-button": {
+			"border-radius": "0 6px 6px 0 !important"
+		},
+		// Inputs & find widgets
+		".monaco-inputbox, .monaco-findInput .monaco-inputbox, .monaco-workbench .quick-input-widget": {
+			"border-radius": "6px"
+		},
+		// Notifications
+		".monaco-workbench > .notifications-center": {
+			"border-radius": "8px !important",
+			"overflow": "hidden"
+		},
+		".monaco-workbench .notification-toast-container .monaco-list-row": {
+			"border-radius": "8px"
+		},
+		// Let the background show around editor group title (so islands float) and separate breadcrumbs and tabs
+		".monaco-workbench .part.editor .editor-group-container .title": {
+			"background-color": "transparent",
+			"padding": "6px 8px",
+			"gap": "4px",
+			"display": "flex",
+			"flex-direction": "column",
+			"align-items": "stretch"
+		},
+		// Style tabs with rounded corners and separation
+		".monaco-workbench .part.editor .editor-group-container .title .tabs-container > .tab": {
+			"border-radius": "12px",
+			"padding-bottom": "5px"
+		},
+		// Ensure breadcrumbs use theme color and proper alignment
+		".monaco-workbench .part.editor .editor-group-container .title .breadcrumbs-control": {
+			"border-radius": "10px",
+			"overflow": "hidden"
+		},
+		// Add rounded corners to all elements
+		".monaco-workbench .part": {
+			"border-radius": "12px",
+			"overflow": "hidden"
+		},
+		".monaco-workbench .part > *": {
+			"border-radius": "12px"
+		},
+		".monaco-breadcrumbs": {
+			"background-color": "transparent",
+			"padding": "0",
+			"max-width": "100%",
+			"overflow": "hidden"
+		},
+		".monaco-breadcrumbs .monaco-breadcrumb-item": {
+			"border-radius": "999px",
+			"padding": "2px 6px",
+			"overflow": "hidden",
+			"text-overflow": "ellipsis",
+			"white-space": "nowrap"
+		},
+		".tabs-and-actions-container.tabs-border-bottom": {
+			"border-bottom": "none !important",
+			"--tabs-border-bottom-color": "transparent !important"
+		},
+		".tab.tab-border-bottom": {
+			"border-bottom": "none !important",
+			"--tab-border-bottom-color": "transparent !important"
+		},
+		".tab-border-bottom-container": {
+			"display": "none !important"
+		},
+		".tabs-and-actions-container": {
+			"box-shadow": "none !important"
+		},
+		".monaco-workbench .part.editor > .content .container": {
+			"box-shadow": "none !important"
+		},
+		/* 2. Round the Editor corners */
+		/* This targets the actual scrollable code area */
+		".monaco-editor, .monaco-editor .overflow-guard": {
+			"border-top-left-radius": "20px !important",
+			"border-top-right-radius": "20px !important"
+		},
+		".tab-border-top-container": {
+			"display": "none !important"
+		},
+		".tabs-container > .tab": {
+			"margin-right": "4px !important",
+			"border-right": "none !important",
+			"border-radius": "12px"
+		},
+		".tabs-container > .tab:last-child": {
+			"margin-right": "0px !important"
+		},
+		".tabs-container": {
+			"display": "flex !important",
+			"gap": "0px !important"
+		},
+		".margin-view-overlays": {
+			"border-radius": "20px 0 0 20px !important",
+			"overflow": "hidden !important",
+			"margin-right": "10px !important"
+		},
+		".line-numbers": {
+			"border-radius": "6px !important"
+		},
+		".current-line-margin": {
+			"border-radius": "6px !important"
+		}
+	},
+	"editor.stickyScroll.enabled": false,
+	"workbench.activityBar.location": "top",
+	"vs-kubernetes": {
+		"vscode-kubernetes.minikube-path-mac": "/Users/rene/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+	},
+	"workbench.colorCustomizations": {},
+	// "vscode_vibrancy.opacity": 0.2,
+	"githubPullRequests.pullBranch": "never",
+	"githubLocalActions.dockerDesktopPath": "/Applications/Docker.app",
+	"terminal.integrated.initialHint": false,
+	"window.commandCenter": false,
+	"markdown-preview-github-styles.colorTheme": "auto",
+	"markdown-preview-github-styles.darkTheme": "dark",
+	"json.schemaDownload.trustedDomains": {
+		"https://schemastore.azurewebsites.net/": true,
+		"https://raw.githubusercontent.com/microsoft/vscode/": true,
+		"https://raw.githubusercontent.com/devcontainers/spec/": true,
+		"https://www.schemastore.org/": true,
+		"https://json.schemastore.org/": true,
+		"https://json-schema.org/": true,
+		"https://developer.microsoft.com/json-schemas/": true,
+		"https://www.raycast.com/schemas/extension.json": true,
+		"https://biomejs.dev": true
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"security.promptForLocalFileProtocolHandling": false,
+	"sonarlint.connectedMode.connections.sonarcloud": [
+		{
+			"organizationKey": "diazdesandi",
+			"connectionId": "diazdesandi",
+			"region": "EU"
+		},
+		{
+			"organizationKey": "stonerl",
+			"connectionId": "stonerl",
+			"region": "EU"
+		},
+		{
+			"organizationKey": "thaw-app",
+			"connectionId": "Thaw Org",
+			"region": "EU"
+		}
+	],
+	"sonarlint.ideLabsEnabled": true,
+	"sonarlint.focusOnNewCode": false,
+	"terminal.integrated.gpuAcceleration": "off",
+	"window.systemColorTheme": "dark",
+	"window.autoDetectColorScheme": false,
+	"[github-actions-workflow]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"terminal.integrated.fontLigatures.enabled": true,
+	"claudeCode.preferredLocation": "panel",
+	"git.addAICoAuthor": "off",
+	"chat.tips.enabled": false,
+	"chat.viewSessions.orientation": "stacked",
+	"pulumi-lsp.detectExtensionConflicts": false,
+	"js/ts.updateImportsOnFileMove.enabled": "never",
+	"workbench.productIconTheme": "fluent-icons",
+	"workbench.browser.showInTitleBar": true,
+	"workbench.iconTheme": "symbols",
+	"workbench.colorTheme": "Rene Minimal",
+	"[yaml]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"gitlens.ai.gitkraken.model": "gemini:gemini-3.1-flash-lite-preview",
+	"accessibility.signals.chatUserActionRequired": {
+		"sound": "off",
+		"announcement": "off"
+	},
+	"geminicodeassist.displayInlineContextHint": false
 }
