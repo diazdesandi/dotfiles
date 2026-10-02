@@ -1,0 +1,44 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = René Jiménez
+	email = diazdesandi@proton.me
+	signingKey = DC99B6EDB84A220AE16438D11EDCBC960CD91D90
+[init]
+	defaultBranch = main
+[core]
+	editor = code --wait
+	hooksPath = /Users/rene/.sonar/sonarqube-cli/hooks
+	pager = delta
+[gpg]
+	program = /opt/homebrew/bin/gpg
+	format = openpgp
+[commit]
+	gpgsign = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[tag]
+	forceSignAnnotated = true
+[format]
+	signoff = true
+[gpg "ssh"]
+	program = ssh-keygen
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3

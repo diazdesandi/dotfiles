@@ -1,0 +1,153 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    },
+    "pi-acp": {
+      "type": "registry"
+    }
+  },
+  "cli_default_open_behavior": "new_window",
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "enable_feedback": false,
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "buffer_line_height": "comfortable",
+  "agent_buffer_font_size": 28.0,
+  "disable_ai": false,
+  "inlay_hints": {
+    "enabled": true,
+    "show_value_hints": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "show_background": false,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50,
+    "toggle_on_modifiers_press": {
+      "control": false,
+      "alt": false,
+      "shift": false,
+      "platform": false,
+      "function": false,
+    },
+  },
+  "buffer_font_size": 24.0,
+  "buffer_font_weight": 450.0,
+  "buffer_font_family": "Cartograph CF",
+  "buffer_font_features": {
+    "calt": 1,
+  },
+  "ui_font_family": "Innovator Grotesk",
+  "ui_font_weight": 400.0,
+  "ui_font_size": 22.0,
+  "preview_tabs": {
+    "enabled": false,
+  },
+  "file_types": {
+    "vue": ["*.vue"],
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "current_line_highlight": "gutter",
+  "cursor_blink": true,
+  "project_panel": {
+    "dock": "right",
+    "auto_fold_dirs": false,
+  },
+  "terminal": {
+    "dock": "bottom",
+    "font_family": "GeistMono Nerd Font Mono",
+    "font_size": 20.0,
+  },
+  "autosave": "on_focus_change",
+  "tab_bar": {
+    "show_tab_bar_buttons": false,
+    "show": true,
+  },
+  "icon_theme": {
+    "mode": "light",
+    "light": "Symbols Icon Theme",
+    "dark": "Symbols Icon Theme",
+  },
+  "base_keymap": "VSCode",
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false,
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+  },
+  "theme": {
+    "mode": "light",
+    "light": "Min Light (Solid)",
+    "dark": "Anysphere Theme",
+  },
+  "theme_overrides": {
+    "One Dark": {
+      "border": "#0F0E0EFF",
+      "elevated_surface.background": "#0F0E0EFF",
+      "surface.background": "#0F0E0EFF",
+      "background": "#0F0E0EFF",
+      "text": "#E3DEDEFF",
+      "icon": "#E3DEDEFF",
+      "status_bar.background": "#0F0E0EFF",
+      "title_bar.background": "#0F0E0EFF",
+      "toolbar.background": "#0F0E0EFF",
+      "tab_bar.background": "#0F0E0EFF",
+      "tab.inactive_background": "#0F0E0EFF",
+      "tab.active_background": "#0F0E0EFF",
+      "panel.background": "#0F0E0EFF",
+      "editor.background": "#0F0E0EFF",
+      "editor.gutter.background": "#0F0E0EFF",
+      "editor.subheader.background": "#0F0E0EFF",
+      "editor.highlighted_line.background": "#0F0E0EFF",
+      "terminal.background": "#0F0E0EFF",
+      "error": "#D6565AFF",
+      "syntax": {
+        "function": {
+          "color": "#EB656EFF",
+        },
+        "keyword": {
+          "color": "#00C0FFFF",
+        },
+        "operator": {
+          "color": "#BEC6CCFF",
+        },
+        "type": {
+          "color": "#BEC6CCFF",
+        },
+      },
+      "panel.overlay_background": "#0F0E0EFF",
+      "panel.overlay_hover": "#0F0E0EFF",
+    },
+  },
+}

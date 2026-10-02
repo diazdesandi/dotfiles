@@ -1,0 +1,58 @@
+# ============================================================================
+# Environment Variables
+# ============================================================================
+
+# ~/.local/bin: claude · ~/.bun/bin: bun global installs (ng, pi)
+export PATH="$HOME/.local/bin:$HOME/.bun/bin:$PATH"
+
+# ============================================================================
+# Tool Initializations
+# ============================================================================
+
+# Bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Starship prompt
+eval "$(starship init zsh)"
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/opt/homebrew/opt/micromamba/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/Users/rene/mamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
+# Default Python env for new shells
+micromamba activate py314
+
+# Google Cloud SDK: PATH and completions
+if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
+
+# ============================================================================
+# History
+# ============================================================================
+
+HISTSIZE=100000
+SAVEHIST=100000
+setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE
+
+# ============================================================================
+# Shell Plugins
+# ============================================================================
+
+# fzf: Ctrl-R history search, Ctrl-T file picker
+source <(fzf --zsh)
+
+# zoxide: `z <partial name>` jumps to a visited directory
+eval "$(zoxide init zsh)"
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Must stay last
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

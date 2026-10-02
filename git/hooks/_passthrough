@@ -1,0 +1,54 @@
+#!/bin/bash
+# Global git hook wrapper: run the repo-local hook (if any), then apply
+# shared policy. Used via core.hooksPath so LLM/agent commits cannot skip
+# DCO Signed-off-by just because they forgot `git commit -s`.
+set -euo pipefail
+
+HOOK_NAME="$(basename "$0")"
+COMMON_DIR="$(git rev-parse --git-common-dir 2>/dev/null || true)"
+
+run_local_hook() {
+  if [[ -z "${COMMON_DIR}" ]]; then
+    return 0
+  fi
+  local hook="${COMMON_DIR}/hooks/${HOOK_NAME}"
+  if [[ -x "${hook}" ]]; then
+    "${hook}" "$@"
+  fi
+}
+
+add_signed_off_by() {
+  local msg_file="$1"
+  local source="${2:-}"
+  case "${source}" in
+    merge|squash) return 0 ;;
+  esac
+
+  if grep -qiE '^Signed-off-by:[[:space:]]+' "${msg_file}"; then
+    return 0
+  fi
+
+  local name email
+  name="$(git config --get user.name || true)"
+  email="$(git config --get user.email || true)"
+  if [[ -z "${name}" || -z "${email}" ]]; then
+    local ident
+    ident="$(git var GIT_AUTHOR_IDENT 2>/dev/null || true)"
+    name="$(printf '%s' "${ident}" | sed -n 's/^\(.*\) <.*$/\1/p')"
+    email="$(printf '%s' "${ident}" | sed -n 's/^.* <\([^>]*\)> .*$/\1/p')"
+  fi
+  if [[ -z "${name}" || -z "${email}" ]]; then
+    echo "prepare-commit-msg: cannot add Signed-off-by (user.name/email unset)" >&2
+    return 0
+  fi
+
+  git interpret-trailers --in-place \
+    --trailer "Signed-off-by: ${name} <${email}>" \
+    "${msg_file}"
+}
+
+run_local_hook "$@"
+
+if [[ "${HOOK_NAME}" == "prepare-commit-msg" ]]; then
+  add_signed_off_by "$@"
+fi
