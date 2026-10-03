@@ -11,7 +11,7 @@
 	defaultBranch = main
 [core]
 	editor = code --wait
-	hooksPath = /Users/rene/.sonar/sonarqube-cli/hooks
+	hooksPath = ~/.config/git/hooks
 	pager = delta
 [gpg]
 	program = /opt/homebrew/bin/gpg
