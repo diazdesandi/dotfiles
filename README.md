@@ -33,4 +33,4 @@ Anything already at a target path is moved to `~/.local/state/dotfiles-backup/<t
 
 Homebrew: `starship fzf zoxide zsh-autosuggestions zsh-syntax-highlighting git-delta micromamba neovim lazygit gh`. Python comes from a micromamba env named `py314`.
 
-`archive/` holds old JavaScript and TypeScript notes that aren't part of the setup.
+`archive/` holds old JavaScript config files that aren't part of the setup.
