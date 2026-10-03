@@ -1,0 +1,16 @@
+font-family = "Geist Mono NF"
+font-size = 24
+adjust-cell-height = 35%
+
+macos-icon = custom
+macos-custom-icon = /Users/rene/Downloads/ghostty-white.icns
+macos-titlebar-style = "transparent"
+
+
+window-theme = dark
+window-title-font-family = "Innovator Grotesk"
+window-padding-balance = true
+window-colorspace = "display-p3"
+
+background-blur-radius = 10
+background-opacity = 1

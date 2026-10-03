@@ -1,0 +1,140 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](green)\
+$os\
+$username\
+[](bg:yellow fg:green)\
+$directory\
+[](bg:peach fg:yellow)\
+$git_branch\
+$git_status\
+[](bg:red fg:peach)\
+$golang\
+$bun\
+$nodejs\
+$swift\
+${custom.swift_root}\
+$python\
+[](bg:pink fg:red)\
+$docker_context\
+$pulumi\
+[](bg:sapphire fg:pink)\
+$time\
+[ ](fg:sapphire)\
+$cmd_duration\
+$line_break"""
+
+palette = 'mac-rainbow'
+
+[os]
+disabled = false
+style = "bg:green fg:crust"
+
+[os.symbols]
+Macos = "󰀵"
+
+[username]
+show_always = true
+style_user = "bg:green fg:crust"
+style_root = "bg:green fg:crust"
+format = '[ $user]($style)'
+
+[directory]
+style = "bg:yellow fg:crust"
+format = "[ $path ]($style)"
+truncation_length = 1
+home_symbol = "~"
+truncate_to_repo = false
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+only_attached = true
+format = '[[ $symbol $branch ](fg:crust bg:peach)]($style)'
+
+[git_status]
+style = "bg:peach"
+format = '[[($staged$modified$untracked$ahead_behind )](fg:crust bg:peach)]($style)'
+staged = "+"
+modified = "±"
+untracked = "…"
+ahead = "↑$count"
+behind = "↓$count"
+diverged = "⇅↑$ahead_count↓$behind_count"
+
+[nodejs]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:crust bg:red)]($style)'
+
+[bun]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:crust bg:red)]($style)'
+
+[swift]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:crust bg:red)]($style)'
+detect_files = ["Package.swift", ".swift-version"]
+detect_folders = ["Sources", "Tests"]
+
+[custom.swift_root]
+description = "Show Swift icon at Xcode project roots"
+when = 'ls -d *.xcodeproj >/dev/null 2>&1 || ls -d *.xcworkspace >/dev/null 2>&1'
+command = 'echo ""'
+style = "bg:red fg:crust"
+format = '[[ $output ]($style)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version) ](fg:crust bg:red)]($style)'
+
+[python]
+symbol = ""
+style = "bg:red"
+format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:red)]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:pink"
+format = '[[ $symbol( $context) ](fg:crust bg:pink)]($style)'
+
+[pulumi]
+symbol = " "
+style = "bg:pink"
+format = '[[ $symbol( $stack) ](fg:crust bg:pink)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:blue"
+format = '[[  $time ](fg:crust bg:blue)]($style)'
+
+[line_break]
+disabled = true
+
+[cmd_duration]
+show_milliseconds = true
+format = " in $duration "
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
+
+[palettes.mac-rainbow]
+pink = "#973999"
+red = "#E23838"
+peach = "#F78200"
+yellow = "#FFB900"
+green = "#5EBD3E"
+sapphire = "#009CDF"
+blue = "#009CDF"
+crust = "#11111b"
