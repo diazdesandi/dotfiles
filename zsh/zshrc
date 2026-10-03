@@ -44,6 +44,21 @@ SAVEHIST=100000
 setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE
 
 # ============================================================================
+# Functions
+# ============================================================================
+
+# lane [project]: jump to a project (zoxide) and resume its Claude conversation,
+# or start a new one if the project has none yet
+lane() {
+  if (( $# )); then z "$@" || return; fi
+  if [[ -n $(print -l ~/.claude/projects/${PWD//[^A-Za-z0-9]/-}/*.jsonl(N)) ]]; then
+    claude --continue
+  else
+    claude
+  fi
+}
+
+# ============================================================================
 # Shell Plugins
 # ============================================================================
 
